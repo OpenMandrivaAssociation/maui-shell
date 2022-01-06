@@ -69,7 +69,14 @@ Zpace is the composer, which is the layout and places the windows or surfaces in
 
 %prep
 %autosetup -p1 -n %{name}-%{git}
-%cmake
+%cmake  \
+        -DENABLE_BSYMBOLICFUNCTIONS=OFF \
+        -DQUICK_COMPILER=ON \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON \
+        -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON \
+        -DCMAKE_VERBOSE_MAKEFILE=ON \
+        "-GUnix Makefiles"
 
 %build
 %make_build
