@@ -12,6 +12,7 @@ Source0:	%{name}-%{git}.tar.xz
 
 License:	 LGPL-3.0
 Group:		Applications/Productivity/Shell/Maui
+BuildRequires:  appstream
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(ECM)
@@ -54,6 +55,8 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:	qt5-qtgraphicaleffects
 BuildRequires:	qt5-qtdeclarative
 BuildRequires:	qt5-qtquickcontrols2
+BuildRequires:  pkgconfig(libcanberra)
+BuildRequires:  pkgconfig(libpulse)
 #Requires:	%{libname} = %{EVRD}
 
 %description
