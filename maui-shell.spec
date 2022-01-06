@@ -1,3 +1,6 @@
+%define libname %mklibname maui-shell %{major}
+%define devname %mklibname -d maui-shell
+
 %define git 20211230
 
 Name:		maui-shell
@@ -57,7 +60,7 @@ BuildRequires:	qt5-qtdeclarative
 BuildRequires:	qt5-qtquickcontrols2
 BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libpulse)
-#Requires:	%{libname} = %{EVRD}
+Requires:	%{libname} = %{EVRD}
 
 %description
 Maui Shell is a convergent shell for desktops, tablets, and phones.
@@ -66,6 +69,22 @@ Maui Shell is composed of two parts:
 
 Cask is the shell container and elements templates, such as panels, popups, cards etc.
 Zpace is the composer, which is the layout and places the windows or surfaces into the Cask container.
+
+%package -n %{libname}
+Summary:	Library files for maui-shell
+Group:		System/Libraries
+Requires:	%{name} = %{EVRD}
+
+%description -n %{libname}
+Library files for mauikit-shell
+
+%package -n %{devname}
+Summary:	Development files for mauikit-shell
+Group:		Development/KDE and Qt
+Requires:	%{name} = %{EVRD}
+
+%description -n %{devname}
+Development files for mauikit-shell
 
 %prep
 %autosetup -p1 -n %{name}-%{git}
@@ -78,3 +97,24 @@ Zpace is the composer, which is the layout and places the windows or surfaces in
 %ninja_install -C build
 
 %files
+%{_bindir}/cask
+%{_bindir}/startcask
+%{_bindir}/startcask-x11
+%{_datadir}/wayland-sessions/cask.desktop
+%{_datadir}/xsessions/cask-x11.desktop
+
+%files -n %{libname}
+%{_libdir}/libCaskAudio.so*
+%{_libdir}/libCaskLib.so
+%{_libdir}/libCaskNotifications.so*
+%{_libdir}/qt5/qml/org/cask/audio/
+%{_libdir}/qt5/qml/org/cask/notifications/
+%{_libdir}/qt5/qml/org/maui/cask/
+
+%files -n %{devname}
+%{_includedir}/Cask/Audio/
+%{_includedir}/Cask/Notifications/
+%{_includedir}/Maui/Cask/
+%{_libdir}/cmake/CaskAudio/
+%{_libdir}/cmake/CaskLib/
+%{_libdir}/cmake/CaskNotifications/
