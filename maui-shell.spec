@@ -49,6 +49,7 @@ BuildRequires:	cmake(Qt5Network)
 BuildRequires:	cmake(Qt5Xml)
 BuildRequires:	cmake(Qt5Test)
 BuildRequires:	cmake(Qt5WebEngine)
+BuildRequires:  qt5-qtbase-devel
 BuildRequires:	qt5-qtgraphicaleffects
 BuildRequires:	qt5-qtdeclarative
 BuildRequires:	qt5-qtquickcontrols2
@@ -62,3 +63,14 @@ Maui Shell is composed of two parts:
 Cask is the shell container and elements templates, such as panels, popups, cards etc.
 Zpace is the composer, which is the layout and places the windows or surfaces into the Cask container.
 
+%prep
+%autosetup -p1 -n %{name}-%{git}
+%cmake
+
+%build
+%make_build
+
+%install
+%make_install -C build
+
+%files
