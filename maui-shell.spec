@@ -77,6 +77,7 @@ Zpace is the composer, which is the layout and places the windows or surfaces in
         -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON \
         -DCMAKE_VERBOSE_MAKEFILE=ON \
         "-GUnix Makefiles"
+cd ..
 
 %build
 %make_build
