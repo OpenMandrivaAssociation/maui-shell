@@ -1,4 +1,4 @@
-%define libname %mklibname maui-shell %{major}
+%define libname %mklibname maui-shell
 %define devname %mklibname -d maui-shell
 
 %define git 20211230
