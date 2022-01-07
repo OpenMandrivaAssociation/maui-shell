@@ -1,17 +1,18 @@
 %define libname %mklibname maui-shell
 %define devname %mklibname -d maui-shell
 
-%define git 20211230
+%define snapshot 20220107
 
 Name:		maui-shell
-Version:	0.%{git}
-Release:	0.git.0
+Version:	0.0.1
+Release:	%{?snapshot:0.%{snapshot}.}1
 Summary:	Maui Shell is a convergent shell for desktops, tablets, and phones.
 Url:		https://github.com/Nitrux/maui-shell
 # Upstream still not provide any releases or tags. So until this happend use git.
 # git clone --recursive https://github.com/Nitrux/maui-shell
-# and then create archive %{name}-%{git}.xz
-Source0:	%{name}-%{git}.tar.xz
+# and then create archive %{name}-%{snapshot}.xz
+# (or use github's tarball generator)
+Source0:	https://github.com/Nitrux/maui-shell/archive/refs/heads/master.tar.gz#/maui-shell-%{snapshot}.tar.gz
 
 License:	 LGPL-3.0
 Group:		Applications/Productivity/Shell/Maui
@@ -60,6 +61,17 @@ BuildRequires:	qt5-qtdeclarative
 BuildRequires:	qt5-qtquickcontrols2
 BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libpulse)
+BuildRequires:	cmake(KF5Completion)
+BuildRequires:	cmake(KF5ItemViews)
+BuildRequires:	cmake(KF5JobWidgets)
+BuildRequires:	cmake(KF5Solid)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5Auth)
+BuildRequires:	cmake(KF5Codecs)
+BuildRequires:	cmake(KF5ConfigWidgets)
+BuildRequires:	cmake(KF5XmlGui)
+BuildRequires:	cmake(KF5WidgetsAddons)
+BuildRequires:	cmake(Qt5QuickCompiler)
 Requires:	%{libname} = %{EVRD}
 
 %description
@@ -87,7 +99,7 @@ Requires:	%{name} = %{EVRD}
 Development files for mauikit-shell
 
 %prep
-%autosetup -p1 -n %{name}-%{git}
+%autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
 %cmake_kde5 -G Ninja
 
 %build
