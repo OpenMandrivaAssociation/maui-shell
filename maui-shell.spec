@@ -4,7 +4,7 @@
 %define snapshot 20220107
 
 Name:		maui-shell
-Version:	0.5.5
+Version:	0.5.6
 Release:	%{?snapshot:1.%{snapshot}.}1
 Summary:	Maui Shell is a convergent shell for desktops, tablets, and phones.
 Url:		https://github.com/Nitrux/maui-shell
