@@ -55,6 +55,7 @@ BuildRequires:	cmake(Qt5Xml)
 BuildRequires:	cmake(Qt5Test)
 BuildRequires:  cmake(Qt5WaylandCompositor)
 BuildRequires:	cmake(Qt5WebEngine)
+BuildRequires:  cmake(KDED)
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:	qt5-qtgraphicaleffects
 BuildRequires:	qt5-qtdeclarative
