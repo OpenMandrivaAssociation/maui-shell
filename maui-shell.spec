@@ -5,7 +5,7 @@
 
 Name:		maui-shell
 Version:	0.6.0
-Release:	%{?snapshot:1.%{snapshot}.}1
+Release:	%{?snapshot:1.%{snapshot}.}2
 Summary:	Maui Shell is a convergent shell for desktops, tablets, and phones.
 Url:		https://github.com/Nitrux/maui-shell
 Source0:	https://github.com/Nitrux/maui-shell/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
@@ -133,6 +133,8 @@ Development files for mauikit-shell
 %cmake_kde5 -G Ninja
 
 %build
+export CC=gcc
+export CXX=g++
 %ninja_build -C build
 
 %install
