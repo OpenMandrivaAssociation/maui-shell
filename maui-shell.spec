@@ -1,18 +1,14 @@
 %define libname %mklibname maui-shell
 %define devname %mklibname -d maui-shell
 
-%define snapshot 20220107
+#define snapshot 20220107
 
 Name:		maui-shell
-Version:	0.5.6
+Version:	0.6.0
 Release:	%{?snapshot:1.%{snapshot}.}1
 Summary:	Maui Shell is a convergent shell for desktops, tablets, and phones.
 Url:		https://github.com/Nitrux/maui-shell
-# Upstream still not provide any releases or tags. So until this happend use git.
-# git clone --recursive https://github.com/Nitrux/maui-shell
-# and then create archive %{name}-%{snapshot}.xz
-# (or use github's tarball generator)
-Source0:	https://github.com/Nitrux/maui-shell/archive/refs/heads/master.tar.gz#/maui-shell-%{snapshot}.tar.gz
+Source0:	https://github.com/Nitrux/maui-shell/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
 
 License:	 LGPL-3.0
 Group:		Applications/Productivity/Shell/Maui
