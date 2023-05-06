@@ -129,10 +129,10 @@ Development files for mauikit-shell
 
 %files
 %{_bindir}/cask
-%{_bindir}/startcask
-%{_bindir}/startcask-x11
-%{_datadir}/wayland-sessions/cask.desktop
-%{_datadir}/xsessions/cask-x11.desktop
+#{_bindir}/startcask
+#{_bindir}/startcask-x11
+#{_datadir}/wayland-sessions/cask.desktop
+#{_datadir}/xsessions/cask-x11.desktop
 
 %files -n %{libname}
 %{_libdir}/libCaskAudio.so*
