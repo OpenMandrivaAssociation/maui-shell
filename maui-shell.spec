@@ -62,6 +62,7 @@ BuildRequires:	qt5-qtquickcontrols2
 BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(polkit-agent-1)
+BuildRequires:  cmake(PolkitQt5-1)
 BuildRequires:	cmake(KF5Completion)
 BuildRequires:	cmake(KF5ItemViews)
 BuildRequires:	cmake(KF5JobWidgets)
