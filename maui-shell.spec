@@ -135,17 +135,17 @@ Development files for mauikit-shell
 #{_datadir}/xsessions/cask-x11.desktop
 
 %files -n %{libname}
-%{_libdir}/libCaskAudio.so*
-%{_libdir}/libCaskLib.so
-%{_libdir}/libCaskNotifications.so*
-%{_libdir}/qt5/qml/org/cask/audio/
-%{_libdir}/qt5/qml/org/cask/notifications/
-%{_libdir}/qt5/qml/org/maui/cask/
+#{_libdir}/libCaskAudio.so*
+#{_libdir}/libCaskLib.so
+#{_libdir}/libCaskNotifications.so*
+#{_libdir}/qt5/qml/org/cask/audio/
+#{_libdir}/qt5/qml/org/cask/notifications/
+#{_libdir}/qt5/qml/org/maui/cask/
 
 %files -n %{devname}
-%{_includedir}/Cask/Audio/
-%{_includedir}/Cask/Notifications/
-%{_includedir}/Maui/Cask/
-%{_libdir}/cmake/CaskAudio/
-%{_libdir}/cmake/CaskLib/
-%{_libdir}/cmake/CaskNotifications/
+#{_includedir}/Cask/Audio/
+#{_includedir}/Cask/Notifications/
+#{_includedir}/Maui/Cask/
+#{_libdir}/cmake/CaskAudio/
+#{_libdir}/cmake/CaskLib/
+#{_libdir}/cmake/CaskNotifications/
