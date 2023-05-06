@@ -128,24 +128,26 @@ Development files for mauikit-shell
 %ninja_install -C build
 
 %files
+%doc %{_datadir}/wallpapers/Cask/LICENSE
 %{_bindir}/cask
-#{_bindir}/startcask
-#{_bindir}/startcask-x11
-#{_datadir}/wayland-sessions/cask.desktop
-#{_datadir}/xsessions/cask-x11.desktop
+%{_bindir}/cask_session
+%{_bindir}/startcask-wayland
+%{_sysconfdir}/xdg/autostart/cask.desktop
+%{_datadir}/applications/cask.desktop
+%{_datadir}/wayland-sessions/cask-session.desktop
+%{_datadir}/wallpapers/Cask/maui_shell_dev_bg.png
 
 %files -n %{libname}
-#{_libdir}/libCaskAudio.so*
-#{_libdir}/libCaskLib.so
-#{_libdir}/libCaskNotifications.so*
-#{_libdir}/qt5/qml/org/cask/audio/
-#{_libdir}/qt5/qml/org/cask/notifications/
-#{_libdir}/qt5/qml/org/maui/cask/
+%{_libdir}/libCaskLib.so
+%{_libdir}/libCaskPolkit.so
+%{_libdir}/libexec/cask-dbus-run-session-if-needed
+%{_libdir}/libexec/cask-sourceenv.sh
+%{_libdir}/qt5/qml/org/cask/polkit/
+%{_libdir}/qt5/qml/org/maui/cask/
 
 %files -n %{devname}
-#{_includedir}/Cask/Audio/
-#{_includedir}/Cask/Notifications/
-#{_includedir}/Maui/Cask/
-#{_libdir}/cmake/CaskAudio/
-#{_libdir}/cmake/CaskLib/
-#{_libdir}/cmake/CaskNotifications/
+%{_includedir}/Cask/Polkit/
+%{_includedir}/Cask/Power/
+%{_includedir}/Maui/Cask/
+%{_libdir}/cmake/CaskLib/
+%{_libdir}/cmake/CaskPolkit/
