@@ -93,6 +93,17 @@ BuildRequires:	cmake(KF5WidgetsAddons)
 BuildRequires:	cmake(Qt5QuickCompiler)
 Requires:	%{libname} = %{EVRD}
 
+Requires: bluedevil
+Requires: kirigami2
+Requires: %{_lib}KF5Kirigami2_5
+Requires: plasma-framework
+Requires: plasma-nm
+Requires: plasma-pa
+Requires: qml(org.kde.bluezqt)
+Requires: qt5-qtquickcontrols2
+Requires: qt5-qtmultimedia
+Requires: qt5-qtwayland
+
 %description
 Maui Shell is a convergent shell for desktops, tablets, and phones.
 
