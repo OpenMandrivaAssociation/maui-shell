@@ -17,6 +17,9 @@ BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(ECM)
 BuildRequires:  cmake(MauiKit)
+BuildRequires:  cmake(MauiMan)
+BuildRequires:  cmake(MauiCore)
+BuildRequires:  cmake(CaskServer)
 BuildRequires:	cmake(Qt5Qml)
 BuildRequires:	cmake(Qt5Sql)
 BuildRequires:	cmake(Qt5Core)
