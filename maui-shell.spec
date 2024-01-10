@@ -5,7 +5,7 @@
 
 Name:		maui-shell
 Version:	0.6.6
-Release:	%{?snapshot:1.%{snapshot}.}1
+Release:	%{?snapshot:1.%{snapshot}.}2
 Summary:	Maui Shell is a convergent shell for desktops, tablets, and phones.
 Url:		https://github.com/Nitrux/maui-shell
 Source0:	https://github.com/Nitrux/maui-shell/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
@@ -16,10 +16,10 @@ BuildRequires:  appstream
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(ECM)
-BuildRequires:  cmake(MauiKit)
+BuildRequires:  cmake(MauiKit3)
 BuildRequires:  cmake(MauiMan)
 BuildRequires:  cmake(MauiCore)
-BuildRequires:  cmake(MauiKitFileBrowsing)
+BuildRequires:  cmake(MauiKitFileBrowsing)3
 BuildRequires:  cmake(CaskServer)
 BuildRequires:	cmake(Qt5Qml)
 BuildRequires:	cmake(Qt5Sql)
