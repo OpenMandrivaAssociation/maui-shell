@@ -9,6 +9,7 @@ Release:	%{?snapshot:1.%{snapshot}.}2
 Summary:	Maui Shell is a convergent shell for desktops, tablets, and phones.
 Url:		https://github.com/Nitrux/maui-shell
 Source0:	https://github.com/Nitrux/maui-shell/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+Patch0:   fix-build-with-mauikit-and-mauiman-3.0.2.patch
 
 License:	 LGPL-3.0
 Group:		Applications/Productivity/Shell/Maui
