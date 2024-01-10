@@ -9,7 +9,7 @@ diff -uraN maui-shell-0.6.6/casklib/CMakeLists.txt omv-maui-shell-0.6.6/casklib/
 -find_package(MauiKit REQUIRED COMPONENTS FileBrowsing)
 -find_package(MauiMan REQUIRED)
 +find_package(MauiKit3 REQUIRED)
-+find_package(MauiKit3 REQUIRED COMPONENTS FileBrowsing3)
++find_package(MauiKit3 REQUIRED COMPONENTS FileBrowsing)
 +find_package(MauiMan3 REQUIRED)
  find_package(CaskServer REQUIRED)
  
@@ -65,3 +65,107 @@ diff -uraN maui-shell-0.6.6/src/main.cpp omv-maui-shell-0.6.6/src/main.cpp
  
  #define ZPACES_URI "Zpaces"
  #define CASK_URI "org.maui.cask"
+diff -up maui-shell-0.6.6/casklib/src/CMakeLists.txt.omv~ maui-shell-0.6.6/casklib/src/CMakeLists.txt
+--- maui-shell-0.6.6/casklib/src/CMakeLists.txt.omv~	2024-01-10 23:26:01.464819240 +0100
++++ maui-shell-0.6.6/casklib/src/CMakeLists.txt	2024-01-10 23:26:10.680880287 +0100
+@@ -117,12 +117,12 @@ target_include_directories(${PROJECT_NAM
+ 
+ target_link_libraries(${PROJECT_NAME}
+     PRIVATE
+-    MauiMan::MauiMan
++    MauiMan3::MauiMan3
+     CaskServer::CaskServerLib
+     MauiCore::Audio
+     MauiCore::Notifications
+-    MauiKit
+-    MauiKit::FileBrowsing
++    MauiKit3
++    MauiKit3::FileBrowsing
+     KF5::I18n
+     KF5::Service
+     KF5::ConfigCore
+diff -up maui-shell-0.6.6/casklib/src/code/controllers/db.h.omv~ maui-shell-0.6.6/casklib/src/code/controllers/db.h
+--- maui-shell-0.6.6/casklib/src/code/controllers/db.h.omv~	2024-01-10 23:29:42.594233651 +0100
++++ maui-shell-0.6.6/casklib/src/code/controllers/db.h	2024-01-10 23:29:47.458264080 +0100
+@@ -26,7 +26,7 @@
+ #include <QVariantMap>
+ #include <QSqlDatabase>
+ 
+-#include <MauiKit/Core/fmh.h>
++#include <MauiKit3/Core/fmh.h>
+ 
+ #include "fmstatic.h"
+ 
+diff -up maui-shell-0.6.6/casklib/src/code/models/appsmodel.h.omv~ maui-shell-0.6.6/casklib/src/code/models/appsmodel.h
+--- maui-shell-0.6.6/casklib/src/code/models/appsmodel.h.omv~	2024-01-10 23:29:53.854304073 +0100
++++ maui-shell-0.6.6/casklib/src/code/models/appsmodel.h	2024-01-10 23:29:56.894323072 +0100
+@@ -2,7 +2,7 @@
+ #define APPSMODEL_H
+ 
+ #include <QObject>
+-#include <MauiKit/Core/mauilist.h>
++#include <MauiKit3/Core/mauilist.h>
+ 
+ class AppsModel : public MauiList
+ {
+diff -up maui-shell-0.6.6/casklib/src/code/models/recentfilesmodel.cpp.omv~ maui-shell-0.6.6/casklib/src/code/models/recentfilesmodel.cpp
+--- maui-shell-0.6.6/casklib/src/code/models/recentfilesmodel.cpp.omv~	2024-01-10 23:30:14.862435264 +0100
++++ maui-shell-0.6.6/casklib/src/code/models/recentfilesmodel.cpp	2024-01-10 23:30:19.758465805 +0100
+@@ -1,7 +1,7 @@
+ #include "recentfilesmodel.h"
+ 
+-#include <MauiKit/FileBrowsing/fileloader.h>
+-#include <MauiKit/FileBrowsing/fmstatic.h>
++#include <MauiKit3/FileBrowsing/fileloader.h>
++#include <MauiKit3/FileBrowsing/fmstatic.h>
+ 
+ #include <QFileSystemWatcher>
+ #include <QDebug>
+diff -up maui-shell-0.6.6/casklib/src/code/models/recentfilesmodel.h.omv~ maui-shell-0.6.6/casklib/src/code/models/recentfilesmodel.h
+--- maui-shell-0.6.6/casklib/src/code/models/recentfilesmodel.h.omv~	2024-01-10 23:30:04.362369723 +0100
++++ maui-shell-0.6.6/casklib/src/code/models/recentfilesmodel.h	2024-01-10 23:30:08.014392525 +0100
+@@ -1,7 +1,7 @@
+ #ifndef RECENTFILESMODEL_H
+ #define RECENTFILESMODEL_H
+ 
+-#include <MauiKit/Core/mauilist.h>
++#include <MauiKit3/Core/mauilist.h>
+ 
+ #include <QObject>
+ 
+diff -up maui-shell-0.6.6/src/main.cpp.omv~ maui-shell-0.6.6/src/main.cpp
+diff -up maui-shell-0.6.6/casklib/src/code/controllers/mauimaninterface.cpp.omv~ maui-shell-0.6.6/casklib/src/code/controllers/mauimaninterface.cpp
+--- maui-shell-0.6.6/casklib/src/code/controllers/mauimaninterface.cpp.omv~	2024-01-10 23:35:51.018298614 +0100
++++ maui-shell-0.6.6/casklib/src/code/controllers/mauimaninterface.cpp	2024-01-10 23:35:58.166384449 +0100
+@@ -1,13 +1,13 @@
+ #include "mauimaninterface.h"
+ #include <QDBusInterface>
+ 
+-#include <MauiMan/settingsstore.h>
+-#include <MauiMan/mauimanutils.h>
++#include <MauiMan3/settingsstore.h>
++#include <MauiMan3/mauimanutils.h>
+ 
+-#include <MauiMan/backgroundmanager.h>
+-#include <MauiMan/thememanager.h>
+-#include <MauiMan/screenmanager.h>
+-#include <MauiMan/inputdevicesmanager.h>
++#include <MauiMan3/backgroundmanager.h>
++#include <MauiMan3/thememanager.h>
++#include <MauiMan3/screenmanager.h>
++#include <MauiMan3/inputdevicesmanager.h>
+ 
+ MauiManInterface::MauiManInterface(QObject *parent) : QObject(parent)
+   ,m_background(nullptr)
+diff -up maui-shell-0.6.6/casklib/src/code/controllers/mauimaninterface.h.omv~ maui-shell-0.6.6/casklib/src/code/controllers/mauimaninterface.h
+--- maui-shell-0.6.6/casklib/src/code/controllers/mauimaninterface.h.omv~	2024-01-10 23:35:43.810211125 +0100
++++ maui-shell-0.6.6/casklib/src/code/controllers/mauimaninterface.h	2024-01-10 23:35:48.430267307 +0100
+@@ -1,7 +1,7 @@
+ #pragma once
+ 
+ #include <QObject>
+-#include <MauiMan/formfactormanager.h>
++#include <MauiMan3/formfactormanager.h>
+ 
+ namespace MauiMan
+ {
