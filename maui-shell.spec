@@ -17,7 +17,7 @@ BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(ECM)
 BuildRequires:  cmake(MauiKit3)
-BuildRequires:  cmake(MauiMan)
+BuildRequires:  cmake(MauiMan3)
 BuildRequires:  cmake(MauiCore)
 BuildRequires:  cmake(MauiKitFileBrowsing3)
 BuildRequires:  cmake(CaskServer)
