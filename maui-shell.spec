@@ -19,7 +19,7 @@ BuildRequires:	cmake(ECM)
 BuildRequires:  cmake(MauiKit3)
 BuildRequires:  cmake(MauiMan)
 BuildRequires:  cmake(MauiCore)
-BuildRequires:  cmake(MauiKitFileBrowsing)3
+BuildRequires:  cmake(MauiKitFileBrowsing3)
 BuildRequires:  cmake(CaskServer)
 BuildRequires:	cmake(Qt5Qml)
 BuildRequires:	cmake(Qt5Sql)
