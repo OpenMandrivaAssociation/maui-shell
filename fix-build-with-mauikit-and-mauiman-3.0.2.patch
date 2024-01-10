@@ -1,0 +1,67 @@
+diff -uraN maui-shell-0.6.6/casklib/CMakeLists.txt omv-maui-shell-0.6.6/casklib/CMakeLists.txt
+--- maui-shell-0.6.6/casklib/CMakeLists.txt	2023-05-23 18:16:23.000000000 +0200
++++ omv-maui-shell-0.6.6/casklib/CMakeLists.txt	2024-01-10 18:15:12.765938538 +0100
+@@ -70,9 +70,9 @@
+ 
+ find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Quick Concurrent DBus Sql)
+ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n Service KIO)
+-find_package(MauiKit REQUIRED)
+-find_package(MauiKit REQUIRED COMPONENTS FileBrowsing)
+-find_package(MauiMan REQUIRED)
++find_package(MauiKit3 REQUIRED)
++find_package(MauiKit3 REQUIRED COMPONENTS FileBrowsing3)
++find_package(MauiMan3 REQUIRED)
+ find_package(CaskServer REQUIRED)
+ 
+ if(QUICK_COMPILER)
+diff -uraN maui-shell-0.6.6/CMakeLists.txt omv-maui-shell-0.6.6/CMakeLists.txt
+--- maui-shell-0.6.6/CMakeLists.txt	2023-05-23 18:16:23.000000000 +0200
++++ omv-maui-shell-0.6.6/CMakeLists.txt	2024-01-10 18:14:36.827563854 +0100
+@@ -14,8 +14,8 @@
+ find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Qml Quick Svg QuickControls2 WaylandCompositor)
+ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n Config Service)
+ 
+-find_package(MauiKit)
+-find_package(MauiMan)
++find_package(MauiKit3)
++find_package(MauiMan3)
+ find_package(CaskServer)
+ find_package(MauiCore REQUIRED COMPONENTS Audio Notifications Power)
+ 
+diff -uraN maui-shell-0.6.6/src/CMakeLists.txt omv-maui-shell-0.6.6/src/CMakeLists.txt
+--- maui-shell-0.6.6/src/CMakeLists.txt	2023-05-23 18:16:23.000000000 +0200
++++ omv-maui-shell-0.6.6/src/CMakeLists.txt	2024-01-10 18:16:07.376970142 +0100
+@@ -26,7 +26,7 @@
+     ${cask_ASSETS}
+     )
+ 
+-target_link_libraries(${PROJECT_NAME} MauiKit MauiMan CaskLib CaskServer::CaskServerLib Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Svg KF5::Service Qt5::WaylandCompositor Qt5::DBus KF5::I18n KF5::ConfigCore)
++target_link_libraries(${PROJECT_NAME} MauiKit3 MauiMan3 CaskLib CaskServer::CaskServerLib Qt5::Qml Qt5::Quick Qt5::QuickControls2 Qt5::Svg KF5::Service Qt5::WaylandCompositor Qt5::DBus KF5::I18n KF5::ConfigCore)
+ 
+ install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+ install(DIRECTORY assets/wallpapers/ DESTINATION ${KDE_INSTALL_WALLPAPERDIR}/Cask)
+diff -uraN maui-shell-0.6.6/src/main.cpp omv-maui-shell-0.6.6/src/main.cpp
+--- maui-shell-0.6.6/src/main.cpp	2023-05-23 18:16:23.000000000 +0200
++++ omv-maui-shell-0.6.6/src/main.cpp	2024-01-10 18:17:37.422476008 +0100
+@@ -42,7 +42,7 @@
+ #include <sys/wait.h>
+ #include <unistd.h>
+ 
+-#include <MauiKit/Core/mauiapp.h>
++#include <MauiKit3/Core/mauiapp.h>
+ #include <KI18n/KLocalizedString>
+ 
+ 
+@@ -60,9 +60,9 @@
+ 
+ #include "../cask_version.h"
+ 
+-#include <MauiMan/screenmanager.h>
+-#include <MauiMan/thememanager.h>
+-#include <MauiMan/mauimanutils.h>
++#include <MauiMan3/screenmanager.h>
++#include <MauiMan3/thememanager.h>
++#include <MauiMan3/mauimanutils.h>
+ 
+ #define ZPACES_URI "Zpaces"
+ #define CASK_URI "org.maui.cask"
