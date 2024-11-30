@@ -91,6 +91,8 @@ BuildRequires:	cmake(KF6XmlGui)
 BuildRequires:	cmake(KF6Wallet)
 #BuildRequires:  cmake(KF6Wayland)
 BuildRequires:	cmake(KF6WidgetsAddons)
+BuildRequires:  cmake(Phonon4Qt6)
+BuildRequires:  pkgconfig(fontconfig)
 Requires:	%{libname} = %{EVRD}
 
 Requires: qml(org.mauicore.power)
