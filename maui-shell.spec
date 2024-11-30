@@ -5,11 +5,13 @@
 
 Name:		maui-shell
 Version:	0.6.6
-Release:	%{?snapshot:1.%{snapshot}.}2
+Release:	3.20241022
 Summary:	Maui Shell is a convergent shell for desktops, tablets, and phones.
 Url:		https://github.com/Nitrux/maui-shell
-Source0:	https://github.com/Nitrux/maui-shell/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
-Patch0:   fix-build-with-mauikit-and-mauiman-3.0.2.patch
+#Source0:	https://github.com/Nitrux/maui-shell/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+# Use git to pull qt6
+Source0:  maui-shell-master.tar.gz
+#Patch0:   fix-build-with-mauikit-and-mauiman-3.0.2.patch
 
 License:	 LGPL-3.0
 Group:		Applications/Productivity/Shell/Maui
@@ -17,81 +19,77 @@ BuildRequires:  appstream
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	cmake(ECM)
-BuildRequires:  cmake(MauiKit3)
-BuildRequires:  cmake(MauiMan3)
-BuildRequires:  cmake(MauiCore)
-BuildRequires:  cmake(MauiKitFileBrowsing3)
+BuildRequires:  cmake(MauiKit4)
+BuildRequires:  cmake(MauiMan4)
+BuildRequires:  cmake(MauiCor4)
+BuildRequires:  cmake(MauiKitFileBrowsing4)
 BuildRequires:  cmake(CaskServer)
-BuildRequires:	cmake(Qt5Qml)
-BuildRequires:	cmake(Qt5Sql)
-BuildRequires:	cmake(Qt5Core)
-BuildRequires:	cmake(Qt5Quick)
-BuildRequires:	cmake(Qt5Gui)
-BuildRequires:	cmake(Qt5Svg)
-BuildRequires:	cmake(Qt5QuickControls2)
-BuildRequires:	cmake(Qt5Network)
-BuildRequires:	cmake(Qt5DBus)
-BuildRequires:	cmake(Qt5Xml)
-BuildRequires:	cmake(KF5I18n)
-BuildRequires:	cmake(KF5Notifications)
-BuildRequires:	cmake(KF5Config)
-BuildRequires:	cmake(KF5Service)
-BuildRequires:	cmake(KF5KIO)
-BuildRequires:	cmake(KF5Kirigami2)
-BuildRequires:	cmake(KF5ConfigWidgets)
+BuildRequires:	cmake(Qt6Qml)
+BuildRequires:	cmake(Qt6Sql)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Quick)
+BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6Svg)
+BuildRequires:	cmake(Qt6QuickControls2)
+BuildRequires:	cmake(Qt6Network)
+BuildRequires:	cmake(Qt6DBus)
+BuildRequires:	cmake(Qt6Xml)
+BuildRequires:	cmake(KF6I18n)
+BuildRequires:	cmake(KF6Notifications)
+BuildRequires:	cmake(KF6Config)
+BuildRequires:	cmake(KF6Service)
+BuildRequires:	cmake(KF6KIO)
+BuildRequires:	cmake(KF6Kirigami2)
+BuildRequires:	cmake(KF6ConfigWidgets)
 BuildRequires:	cmake(KDecoration2)
-BuildRequires:	cmake(KF5CoreAddons)
-BuildRequires:	cmake(KF5Declarative)
-BuildRequires:	cmake(KF5Plasma)
-BuildRequires:	cmake(KF5PlasmaQuick)
-BuildRequires:	cmake(Qt5Widgets)
-BuildRequires:	cmake(KF5WindowSystem)
+BuildRequires:	cmake(KF6CoreAddons)
+BuildRequires:	cmake(KF6Declarative)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:	cmake(KF6WindowSystem)
 BuildRequires:	cmake(Git)
-BuildRequires:	cmake(KF5SyntaxHighlighting)
-BuildRequires:	cmake(KF5Attica)
-BuildRequires:	cmake(Qt5)
-BuildRequires:	cmake(Qt5Core)
-BuildRequires:	cmake(Qt5Network)
-BuildRequires:	cmake(Qt5Xml)
-BuildRequires:	cmake(Qt5Test)
-BuildRequires:  cmake(Qt5WaylandCompositor)
-BuildRequires:	cmake(Qt5WebEngine)
+BuildRequires:	cmake(KF6SyntaxHighlighting)
+BuildRequires:	cmake(KF6Attica)
+BuildRequires:	cmake(Qt6)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Network)
+BuildRequires:	cmake(Qt6Xml)
+BuildRequires:	cmake(Qt6Test)
+BuildRequires:  cmake(Qt6WaylandCompositor)
+BuildRequires:	cmake(Qt6WebEngineCore)
 BuildRequires:  cmake(KDED)
-BuildRequires:  qt5-qtbase-devel
-BuildRequires:	qt5-qtgraphicaleffects
-BuildRequires:	qt5-qtdeclarative
-BuildRequires:	qt5-qtquickcontrols2
+#BuildRequires:  qt5-qtbase-devel
+#BuildRequires:	qt5-qtgraphicaleffects
+#BuildRequires:	qt5-qtdeclarative
+#BuildRequires:	qt5-qtquickcontrols2
 BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(polkit-agent-1)
-BuildRequires:  cmake(PolkitQt5-1)
-BuildRequires:	cmake(KF5Activities)
-BuildRequires:	cmake(KF5ActivitiesStats)
-BuildRequires:	cmake(KF5Completion)
-BuildRequires:  cmake(KF5DocTools)
-BuildRequires:  cmake(KF5IdleTime)
-BuildRequires:  cmake(KF5ItemModels)
-BuildRequires:	cmake(KF5ItemViews)
-BuildRequires:	cmake(KF5Init)
-BuildRequires:	cmake(KF5JobWidgets)
-BuildRequires:  cmake(KF5NotifyConfig)
-BuildRequires:  cmake(KF5People)
-BuildRequires:  cmake(KF5Prison)
-BuildRequires:	cmake(KF5Solid)
-BuildRequires:  cmake(KF5Su)
-BuildRequires:  cmake(KF5TextEditor)
-BuildRequires:  cmake(KF5UnitConversion)
-BuildRequires:	cmake(KF5CoreAddons)
-BuildRequires:	cmake(KF5Auth)
-BuildRequires:	cmake(KF5Codecs)
-BuildRequires:	cmake(KF5ConfigWidgets)
-BuildRequires:  cmake(KF5Runner)
-BuildRequires:	cmake(KF5XmlGui)
-BuildRequires:	cmake(KF5Wallet)
-BuildRequires:  cmake(KF5Wayland)
-
-BuildRequires:	cmake(KF5WidgetsAddons)
-BuildRequires:	cmake(Qt5QuickCompiler)
+BuildRequires:  cmake(PolkitQt6-1)
+BuildRequires:	cmake(KF6Activities)
+BuildRequires:	cmake(KF6ActivitiesStats)
+BuildRequires:	cmake(KF6Completion)
+BuildRequires:  cmake(KF6DocTools)
+BuildRequires:  cmake(KF6IdleTime)
+BuildRequires:  cmake(KF6ItemModels)
+BuildRequires:	cmake(KF6ItemViews)
+BuildRequires:	cmake(KF6Init)
+BuildRequires:	cmake(KF6JobWidgets)
+BuildRequires:  cmake(KF6NotifyConfig)
+BuildRequires:  cmake(KF6People)
+BuildRequires:  cmake(KF6Prison)
+BuildRequires:	cmake(KF6Solid)
+BuildRequires:  cmake(KF6Su)
+BuildRequires:  cmake(KF6TextEditor)
+BuildRequires:  cmake(KF6UnitConversion)
+BuildRequires:	cmake(KF6CoreAddons)
+BuildRequires:	cmake(KF6Auth)
+BuildRequires:	cmake(KF6Codecs)
+BuildRequires:	cmake(KF6ConfigWidgets)
+BuildRequires:  cmake(KF6Runner)
+BuildRequires:	cmake(KF6XmlGui)
+BuildRequires:	cmake(KF6Wallet)
+BuildRequires:  cmake(KF6Wayland)
+BuildRequires:	cmake(KF6WidgetsAddons)
 Requires:	%{libname} = %{EVRD}
 
 Requires: qml(org.mauicore.power)
@@ -99,14 +97,14 @@ Requires: cask-server
 
 Requires: bluedevil
 Requires: kirigami2
-Requires: %{_lib}KF5Kirigami2_5
-Requires: plasma-framework
-Requires: plasma-nm
-Requires: plasma-pa
-Requires: qml(org.kde.bluezqt)
-Requires: qt5-qtquickcontrols2
-Requires: qt5-qtmultimedia
-Requires: qt5-qtwayland
+#Requires: %{_lib}KF5Kirigami2_5
+#Requires: plasma-framework
+#Requires: plasma-nm
+#Requires: plasma-pa
+#Requires: qml(org.kde.bluezqt)
+#Requires: qt5-qtquickcontrols2
+#Requires: qt5-qtmultimedia
+#Requires: qt5-qtwayland
 
 %description
 Maui Shell is a convergent shell for desktops, tablets, and phones.
@@ -133,7 +131,7 @@ Requires:	%{name} = %{EVRD}
 Development files for mauikit-shell
 
 %prep
-%autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
+%autosetup -p1 -n %{name}-master
 %cmake_kde5 -G Ninja
 
 %build
