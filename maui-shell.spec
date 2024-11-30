@@ -149,7 +149,7 @@ Development files for mauikit-shell
 %{_bindir}/cask
 %{_bindir}/cask_session
 %{_bindir}/startcask-wayland
-%{_sysconfdir}/xdg/autostart/cask.desktop
+#{_sysconfdir}/xdg/autostart/cask.desktop
 %{_datadir}/applications/cask.desktop
 %{_datadir}/wayland-sessions/cask-session.desktop
 %{_datadir}/wallpapers/Cask/maui_shell_dev_bg.png
