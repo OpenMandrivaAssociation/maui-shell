@@ -156,8 +156,8 @@ Development files for mauikit-shell
 
 %files -n %{libname}
 %{_libdir}/libCaskPolkit.so
-%{_libexecdir}cask-dbus-run-session-if-needed
-%{_libexecdir}cask-sourceenv.sh
+%{_libexecdir}/cask-dbus-run-session-if-needed
+%{_libexecdir}/cask-sourceenv.sh
 %{_libdir}/qt6/qml/org/cask/
 %{_libdir}/qt6/qml/org/maui/
 
