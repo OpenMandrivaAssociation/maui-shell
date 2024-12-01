@@ -155,16 +155,16 @@ Development files for mauikit-shell
 %{_datadir}/wallpapers/Cask/maui_shell_dev_bg.png
 
 %files -n %{libname}
-%{_libdir}/libCaskLib.so
-%{_libdir}/libCaskPolkit.so
-%{_libdir}/libexec/cask-dbus-run-session-if-needed
-%{_libdir}/libexec/cask-sourceenv.sh
-%{_libdir}/qt5/qml/org/cask/polkit/
-%{_libdir}/qt5/qml/org/maui/cask/
+#{_libdir}/libCaskLib.so
+#{_libdir}/libCaskPolkit.so
+#{_libdir}/libexec/cask-dbus-run-session-if-needed
+#{_libdir}/libexec/cask-sourceenv.sh
+#{_libdir}/qt5/qml/org/cask/polkit/
+#{_libdir}/qt5/qml/org/maui/cask/
 
 %files -n %{devname}
-%{_includedir}/Cask/Polkit/
-%{_includedir}/Cask/Power/
-%{_includedir}/Maui/Cask/
-%{_libdir}/cmake/CaskLib/
-%{_libdir}/cmake/CaskPolkit/
+#{_includedir}/Cask/Polkit/
+#{_includedir}/Cask/Power/
+#{_includedir}/Maui/Cask/
+#{_libdir}/cmake/CaskLib/
+#{_libdir}/cmake/CaskPolkit/
