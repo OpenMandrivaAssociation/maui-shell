@@ -5,7 +5,7 @@
 
 Name:		maui-shell
 Version:	0.6.6
-Release:	3.20241022
+Release:	4.20241022
 Summary:	Maui Shell is a convergent shell for desktops, tablets, and phones.
 Url:		https://github.com/Nitrux/maui-shell
 #Source0:	https://github.com/Nitrux/maui-shell/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
