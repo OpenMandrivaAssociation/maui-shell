@@ -133,9 +133,9 @@ Development files for mauikit-shell
 
 %prep
 %autosetup -p1 -n %{name}-master
-%cmake_kde5 -G Ninja
 
 %build
+%cmake -G Ninja
 %ninja_build -C build
 
 %install
